@@ -3,4 +3,20 @@
 {% block content %}
 
 <h3> LET'S ADD SOME RECIPES HERE :)</h3>
+
+<h3>Fermentables</h3>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form id="fermentable_form" action="{% url 'MyBrewsApp:addRecipe' user.id %}" method="POST">
+{% csrf_token %}
+{{RecipeRecipeForm.as_p}}
+{{RecipeFermentableForm.as_p}}
+{{RecipeHopForm.as_p}}
+{{RecipeYeastForm.as_p}}
+<button type="submit">Save Fermentable</button>
+</form>
+
+
 {% endblock %}

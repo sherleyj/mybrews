@@ -24,7 +24,9 @@
             {% if user.is_authenticated %}
                 <h1 class="siteTitle">Hello {{user.first_name}} {{user.last_name}}</h1>
                 <div>
-                    <a href="{% url 'logout' %}">logout</a>
+                    <a href="{% url 'logout' %}"> logout </a>
+                    <a href="{% url 'MyBrewsApp:brewer' user.id %}"> MyRecipes </a>
+                    <a href="{% url 'MyBrewsApp:index' %}"> home </a>
                 </div>
             {% else %}
                 <h1 class="siteTitle">MyBrews</h1>
