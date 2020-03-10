@@ -1,12 +1,24 @@
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework import routers
 from . import views
+
+router = routers.DefaultRouter()
+# router.register(r'loginViewSet', views.loginViewSet)
+router.register(r'fermentables', views.FermentableView)
+router.register(r'users', views.UserView)
+router.register(r'brewers', views.BrewerView)
+router.register(r'hops', views.HopView)
 
 app_name = 'MyBrewsApp'
 urlpatterns = [
-    # path('<int:user_id>/', views.brewerHome, name='brewerHome'),
-    path('', views.index, name='index'),
-    path('brewerLoginRedirect/', views.brewerLoginRedirect, name='brewerLoginRedirect'),
+    # # path('<int:user_id>/', views.brewerHome, name='brewerHome'),
+    # path('', views.index, name='index'),
+    path('brewerloginredirect/', views.brewer_login_redirect, name='brewerLoginRedirect'),
     path('brewer/<int:user_id>/', views.brewer, name='brewer'),
-    path('AddRecipe/<int:user_id>/', views.addRecipe, name='addRecipe')
+    # path('addrecipe/<int:user_id>/', views.addRecipeForm, name='addRecipe'),
+    # path('addrecipe/<int:user_id>/', views.addRecipeForm, name='addRecipe'),
+    # path('test/', views.test),
+    # # path('login/', views.login),
+    # path('myfermentables/<int:user_id>/', views.myFermetables),
+    path('', include(router.urls)),
 ]

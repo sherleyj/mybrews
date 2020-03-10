@@ -29,7 +29,7 @@ class Fermentable(models.Model):
     grain_type = models.CharField(max_length=2, choices=FERMENTABLE_TYPES, null=True, blank=True)
     brewer = models.ForeignKey(Brewer, on_delete=models.CASCADE, null=True, blank=True)
     ppg = models.IntegerField(default=0, null=True, blank=True)
-
+    
 
     def __str__(self):
         return self.name
