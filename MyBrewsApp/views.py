@@ -62,7 +62,7 @@ def brewer_login_redirect(request):
     #     reverse('MyBrewsApp:brewer',args=[request.user.id])
     # )
     return HttpResponseRedirect(
-        reverse('frontend:home')
+        reverse('frontend:home2',args=[request.user.id])
     )
 
 # def addRecipeForm(request, user_id):
@@ -149,3 +149,5 @@ class HopView(viewsets.ModelViewSet):
 class BrewerView(viewsets.ModelViewSet):
     queryset = Brewer.objects.all()
     serializer_class = BrewerSerializer
+
+    

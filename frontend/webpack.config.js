@@ -1,6 +1,8 @@
 module.exports = {
     // default 
     // entry: './path/to/my/entry/file.js'
+    entry: "./src/index.js",
+    watch: true,
     module: {
       rules: [
         {

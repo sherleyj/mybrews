@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-// import ReactDOM from 'react-dom';
+// https://www.valentinog.com/blog/drf/#Django_REST_with_React_Django_and_React_together
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("MyBrewsApp/hops")
+    fetch("../api/hops")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
@@ -25,7 +25,7 @@ class App extends Component {
       .then(data => {
         this.setState(() => {
           return {
-            data,
+            data: data,
             loaded: true
           };
         });
@@ -33,6 +33,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("APP is here");
     return (
       <ul>
         {this.state.data.map(hop => {
