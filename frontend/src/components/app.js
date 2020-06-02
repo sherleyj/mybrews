@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("../api/hops")
+    fetch("http://127.0.0.1:8000/api/hops")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {

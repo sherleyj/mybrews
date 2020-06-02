@@ -9,7 +9,7 @@ router.register(r'users', views.UserView)
 router.register(r'brewers', views.BrewerView)
 router.register(r'hops', views.HopView)
 
-app_name = 'api'
+app_name = 'MyBrewsApp'
 urlpatterns = [
     # # path('<int:user_id>/', views.brewerHome, name='brewerHome'),
     # path('', views.index, name='index'),
