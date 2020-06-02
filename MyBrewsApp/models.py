@@ -12,21 +12,10 @@ class Brewer(models.Model):
 
 
 class Fermentable(models.Model):
-    BASE_MALT = 'BM'
-    ADJUNCT = 'AJ'
-    MALT_EXTRACT = 'ME'
-    SPECIALTY_MALT = 'SM'
-    FERMENTABLE_TYPES = [
-        (BASE_MALT, 'Base Malt'),
-        (ADJUNCT, 'Adjunct'),
-        (MALT_EXTRACT, 'Malt Extract'),
-        (SPECIALTY_MALT, 'Specialty Malt'),
-    ]
-
     name = models.CharField(max_length=200)
-    # pounds = models.DecimalField(max_digits=3, decimal_places=1, default=0)
+    pounds = models.DecimalField(max_digits=3, decimal_places=1, default=0)
     lovibond = models.CharField(max_length=5, null=True, blank=True)
-    grain_type = models.CharField(max_length=2, choices=FERMENTABLE_TYPES, null=True, blank=True)
+    # grain_type = models.CharField(max_length=2, choices=FERMENTABLE_TYPES, null=True, blank=True)
     brewer = models.ForeignKey(Brewer, on_delete=models.CASCADE, null=True, blank=True)
     ppg = models.IntegerField(default=0, null=True, blank=True)
     
@@ -37,6 +26,7 @@ class Fermentable(models.Model):
 class Grist(models.Model):
     fermentable = models.ForeignKey(Fermentable, on_delete=models.CASCADE)
     pounds = models.DecimalField(max_digits=3, decimal_places=1, default=0)
+    brewer = models.ForeignKey(Brewer, on_delete=models.CASCADE, null=True, blank=True)
 
 
 class Yeast(models.Model):
