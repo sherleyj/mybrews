@@ -130,9 +130,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/MyBrewsApp/brewerloginredirect/'
+LOGIN_REDIRECT_URL = '/api/loginredirect/'
 
-LOGOUT_REDIRECT_URL = '/MyBrewsApp/'
+LOGOUT_REDIRECT_URL = '/recipe/'
 
 SITE_ID = 123
 

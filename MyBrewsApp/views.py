@@ -57,12 +57,12 @@ def brewer(request, user_id):
 
 
 @login_required
-def brewer_login_redirect(request):
+def login_redirect(request):
     # return HttpResponseRedirect(
     #     reverse('MyBrewsApp:brewer',args=[request.user.id])
     # )
     return HttpResponseRedirect(
-        reverse('frontend:home2',args=[request.user.id])
+        reverse('frontend:home',args=[request.user.id])
     )
 
 # def addRecipeForm(request, user_id):
